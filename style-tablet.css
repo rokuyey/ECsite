@@ -1,0 +1,34 @@
+/* タブレット用のレイアウト上書き */
+.main-container {
+  flex-direction: column; /* 縦並びに変更 */
+}
+.sidebar-summary {
+  width: 100%; /* 横幅いっぱいに広げる */
+}
+.summary-box {
+  position: static; /* 画面スクロール追従（固定）を解除 */
+}
+
+
+/* 合計金額ボタン */
+.floating-cart-btn {
+  display: flex; /* 非表示を解除 */
+  align-items: center;
+  justify-content: center;
+  
+  /* 画面右下に固定する設定 */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 500; /* 商品カードや写真より手前に浮かせる */
+  
+  background-color: rgb(255, 152, 0);
+  color: #fff;
+  border: none;
+  border-radius: 30px; /* 丸みのあるかわいいカプセル型に */
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 浮いているような影をつける */
+  cursor: pointer;
+}

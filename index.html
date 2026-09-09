@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BizMart Pro - 見積カタログ</title>
+    <!-- CSSファイルを読み込む設定 -->
+    <!-- 1. すべての画面共通 ＋ パソコン用のベースデザイン -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- 2. タブレット（iPad等）用：画面幅が1024px以下の時に自動適用 -->
+    <link
+      rel="stylesheet"
+      href="style-tablet.css"
+      media="screen and (max-width: 1024px)"
+    />
+
+    <!-- 3. スマートフォン用：画面幅が600px以下の時に自動適用 -->
+    <link
+      rel="stylesheet"
+      href="style-mobile.css"
+      media="screen and (max-width: 600px)"
+    />
+  </head>
+  <body>
+    <!-- ========================================== -->
+    <!-- 1. ヘッダーエリア                          -->
+    <!-- ========================================== -->
+    <header class="header">
+      <div class="header-inner">
+        <h1 class="logo">BizMart Pro</h1>
+        <div class="search-bar">
+          <input type="text" placeholder="型番・商品名で探す" />
+          <button type="button">検索</button>
+        </div>
+      </div>
+
+      <!-- メニューバー（カテゴリー切り替え ＋ お気に入りボタン） -->
+      <nav class="nav-tabs">
+        <button type="button" class="tab-btn active" data-category="all">
+          すべて
+        </button>
+        <button type="button" class="tab-btn" data-category="wood">
+          木材・建材
+        </button>
+        <button type="button" class="tab-btn" data-category="electric">
+          電化製品・設備
+        </button>
+        <button type="button" class="tab-btn" data-category="tools">
+          工具・資材
+        </button>
+        <button
+          type="button"
+          class="tab-btn fav-filter-btn"
+          data-category="favorites"
+          id="fav-filter-btn"
+        >
+          ★ お気に入りで絞り込み
+        </button>
+      </nav>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- メインコンテンツ全体のレイアウト           -->
+    <!-- ========================================== -->
+    <main class="main-container">
+      <!-- ========================================== -->
+      <!-- 2. メインコンテンツエリア（画面の左側）    -->
+      <!-- ========================================== -->
+      <section class="products-section">
+        <div class="products-grid" id="products-grid">
+          <!-- JavaScriptから動的に商品が挿入されます -->
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- 3. サイドバーエリア（画面の右側）          -->
+      <!-- ========================================== -->
+      <aside class="sidebar-summary">
+        <div class="summary-box">
+          <h3 class="summary-title">現在のお見積り合計</h3>
+          <p class="summary-notice">
+            ※当サイトで購入はできません。営業担当へお繋ぎします。
+          </p>
+
+          <!-- 【修正】id="cart-items" を追加し、中身を空っぽにします -->
+          <div class="cart-items" id="cart-items">
+            <!-- ここに選択された商品がリアルタイムに並びます -->
+          </div>
+
+          <!-- 【修正】金額の数字部分に id="total-amount" を追加します -->
+          <div class="total-price-area">
+            <span class="total-label">合計金額(税別):</span>
+            <span class="total-amount" id="total-amount">¥0</span>
+          </div>
+
+          <button type="button" class="quote-btn" id="quote-btn">見積もり依頼手続きへ</button>
+        </div>
+      </aside>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- 4. ポップアップ画面                        -->
+    <!-- ========================================== -->
+    <!-- 表示テストをしたい場合は、下のclassに「show」を追加してください（例: class="modal-overlay show"） -->
+    <div class="modal-overlay" id="order-modal">
+      <div class="modal-content">
+        <h3 class="modal-title">注文・お問い合わせ方法を選ぶ</h3>
+        <button type="button" class="modal-choice-btn email-btn">
+          ✉ メールでの注文・問い合わせ
+        </button>
+        <button type="button" class="modal-choice-btn phone-btn">
+          📞 電話での注文（0120-xxx-xxx）
+        </button>
+        <button type="button" class="modal-close-btn" id="modal-close-btn">戻る</button>
+      </div>
+    </div>
+    <button type="button" class="floating-cart-btn" id="floating-cart-btn">見積合計を見る 🛒</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+/* スマホ用のレイアウト上書き */
+.header-inner {
+  flex-direction: column; /* ロゴと検索バーを縦に並べる */
+  align-items: flex-start;
+  gap: 10px;
+}
+.search-bar {
+  max-width: 100%;
+}
+.tab-btn.fav-filter-btn {
+  margin-left: 0; /* 右端寄せを解除してカテゴリの並びに収める */
+}
+.products-grid {
+  grid-template-columns: 1fr; /* 商品カードを1列にして大きく見せる */
+}
+
+/* 見積もり合計ボタン */
+.floating-cart-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 500;
+  
+  background-color: rgb(255, 152, 0);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 18px;
+  font-size: 13px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/* .sidebar-summary {
+  display: none;
+} */
+
+/* .sidebar-summary は見積もり合計金額が表示で、見積もり合計を見るをクリックした際にモーダルウィンドウで表示されるようにするため、スマホでは非表示にしておく。jsで実装する。
+display:noneクラスが指定されているクラスを作ってそれを付与、消去することで、表示・非表示を切り替える。 */
